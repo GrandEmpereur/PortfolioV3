@@ -1,6 +1,9 @@
 import { createApp } from 'vue'
 import './assets/scss/main.scss'
 import App from './App.vue'
+import { inject } from '@vercel/analytics';
+
+inject();
 
 import { Swiper as SwiperComponent, SwiperSlide as SwiperSlideComponent } from 'swiper/vue'
 import 'swiper/swiper-bundle.css'
