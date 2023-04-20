@@ -1,0 +1,107 @@
+/* fonts */
+
+@font-face {
+    font-family: 'Fira Sans Condensed';
+    src: url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Amaranth';
+    src: url('https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nunito';
+    src: url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000');
+    font-display: swap;
+}
+
+
+:root {
+    /* typography */
+    --base-text-size: 0.875rem;
+
+    /* 14px */
+    --text-size-increment: 1.2;
+
+    --base-text-line-height: 1.3125rem;
+
+    --text-xs: calc(var(--base-text-size) / var(--text-size-increment));
+    --text-s: var(--base-text-size);
+    --text-m: calc(var(--text-s) * var(--text-size-increment));
+    --text-l: calc(var(--text-m) * var(--text-size-increment));
+    --text-xl: calc(var(--text-l) * var(--text-size-increment));
+    --text-2xl: calc(var(--text-xl) * var(--text-size-increment));
+    --text-3xl: calc(var(--text-2xl) * var(--text-size-increment));
+    --text-4xl: calc(var(--text-3xl) * var(--text-size-increment));
+
+    --line-height-fixed-amount: 0.35rem;
+    --line-height-relative-amount: 1.1em;
+    --globalLineHeight: calc(var(--line-height-fixed-amount) + var(--line-height-relative-amount));
+
+    --body-font-family: "Fira Sans Condensed";
+    --heading-font-family: "Amaranth";
+    --nunito-font-family: "Nunito";
+
+    --body-font-weight: 700;
+    --heading-font-weight: 500;
+    --nunito-font-weight: 400;
+
+    /* spacing */
+    --unit: 0.5rem;
+    --space-increment: 1.65;
+
+    --space-xs: calc(var(--unit) / var(--space-increment));
+    --space-s: var(--unit);
+    --space-m: calc(var(--space-s) * var(--space-increment));
+    --space-l: calc(var(--space-m) * var(--space-increment));
+    --space-xl: calc(var(--space-l) * var(--space-increment));
+    --space-2xl: calc(var(--space-xl) * var(--space-increment));
+    --space-3xl: calc(var(--space-2xl) * var(--space-increment));
+    --space-4xl: calc(var(--space-3xl) * var(--space-increment));
+
+    /* colors */
+    /* name you color with this tool: https://chir.ag/projects/name-that-color */
+
+    --color-white: #fff;
+    --color-black: #000;
+    --color-primary: #DAB967;
+    --color-raisin-black: #292929;
+
+    /* grid */
+    --grid-cols: 26;
+    --grid-col-start: 3;
+    --grid-col-end: 25;
+    --grid-col-gap: 1.312rem;
+    --grid-row-gap: 12px;
+
+    --grid-outside-gap: 2.0625rem;
+
+    --grid-col-start-short: 5;
+    --grid-col-end-short: 23;
+
+    --grid-col-start-large: 2;
+    --grid-col-end-large: 26;
+
+    --grid-cols-mobile: 22;
+    --grid-col-start-mobile: 1;
+    --grid-col-end-mobile: 23;
+    --grid-col-gap-mobile: 10px;
+
+    --grid-outside-gap-mobile: 0.8125rem;
+
+    --button-border-radius: 50px;
+
+    /* aspect-ratio */
+    --product-card-aspect-ratio: 15 / 20;
+
+    /* misc. */
+    --field-border-radius: 10px;
+    --field-border-width: 2px;
+
+    /* Font Scale */
+    --font-body-scale: var(--text-s);
+    --font-heading-scale: var(--text-l);
+}

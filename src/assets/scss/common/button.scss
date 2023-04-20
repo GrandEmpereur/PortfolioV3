@@ -1,0 +1,314 @@
+// ---------------------------------------------------------------------------------------------------------------------
+// Button base layouts (same for all buttons style)
+// ---------------------------------------------------------------------------------------------------------------------
+
+.button {
+  @extend %button;
+
+  min-width: 200px;
+  background: var(--color-raisin-black);
+  color: var(--color-white);
+  text-transform: uppercase;
+  transition: all 150ms ease-in;
+  border: 1px solid transparent;
+
+  span {
+    text-transform: uppercase;
+    color: var(--color-white);
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &.has-icon svg {
+    color: var(--color-white);
+  }
+
+  &:not(.button--no-hover):hover {
+    @media (hover: hover) and (pointer: fine) {
+      border: 1px solid transparent;
+      color: var(--color-raisin-black);
+      background: var(--color-white);
+      text-decoration: none;
+      transition: all 150ms ease-in;
+
+      span {
+        text-decoration: none;
+        color: var(--color-raisin-black);
+      }
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    padding-left: 1.3125rem;
+    padding-right: 1.3125rem;
+  }
+
+  &.button--s {
+    min-width: unset;
+    padding: 1em 1.5rem 1em 1.5rem;
+  }
+
+  &.button--m {
+    min-width: unset;
+    padding: 1em 3rem 1em 3rem;
+  }
+
+  &.button--tablette--m {
+    @include media-breakpoint-down(lg) {
+      min-width: unset;
+      padding: 1em 3rem 1em 3rem;
+    }
+  }
+
+  &.button--full-width {
+    width: 100%;
+  }
+
+  &.button--mobile--s {
+    @include media-breakpoint-down(sm) {
+      min-width: unset;
+      padding: 1em 1.5rem 1em 1.5rem;
+    }
+  }
+
+  &.button--l {
+    padding: 1.2em 2.8rem 1.2em 2.8rem;
+
+    span {
+      font-size: var(--text-m);
+    }
+  }
+
+  &.button-dark-hover:not(.button--no-hover):hover {
+    @media (hover: hover) and (pointer: fine) {
+      background: #302E2E;
+
+      span {
+        color: var(--color-white);
+      }
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Button styles
+// ---------------------------------------------------------------------------------------------------------------------
+.button.button--primary {
+  // same as .button
+
+  &.button--primary-border-hover:not(.button--no-hover):hover {
+    @media (hover: hover) and (pointer: fine) {
+      border: 1px solid var(--color-raisin-black);
+    }
+  }
+  &.button--primary-light-border-hover:not(.button--no-hover):hover {
+    @media (hover: hover) and (pointer: fine) {
+      border: 1px solid var(--color-anti-flash-white);
+    }
+  }
+}
+
+.button.button--secondary {
+  border: 1px solid transparent;
+  color: var(--color-raisin-black);
+  background: var(--color-white);
+
+  span {
+    color: var(--color-raisin-black);
+  }
+
+  &.has-icon svg {
+    color: var(--color-raisin-black);
+  }
+
+  &:not(.button--no-hover):hover {
+    @media (hover: hover) and (pointer: fine) {
+      background: var(--color-raisin-black);
+      color: var(--color-white);
+
+      span {
+        color: var(--color-white);
+      }
+    }
+  }
+}
+
+.button.button--alt {
+  border: 1px solid var(--color-anti-flash-white);
+  color: var(--color-raisin-black);
+  background: var(--color-white);
+
+  &.button--has-icon{
+    svg {
+      margin-right: var(--space-l);
+    }
+  }
+
+  &.button--alt-border {
+    border: 1px solid var(--color-raisin-black);
+  }
+
+  &.button--return{
+    padding: 1em 3em 1em 0.5em;
+  }
+
+  span {
+    color: var(--color-raisin-black);
+  }
+
+  &:not(.button--no-hover):hover {
+    @media (hover: hover) and (pointer: fine) {
+      background: var(--color-raisin-black);
+      color: var(--color-white);
+
+      span {
+        color: var(--color-white);
+      }
+    }
+  }
+}
+
+.button.button--filter {
+  padding-left: 2.625rem;
+  padding-right: 2.625rem;
+
+  span {
+    // ici le titre h4
+  }
+}
+
+.button.has-icon {
+  svg + span,
+  span + svg {
+    margin-left: 0.5rem;
+  }
+
+  svg {
+    color: inherit;
+  }
+
+  &:not(.button--no-hover):hover {
+    @media (hover: hover) and (pointer: fine) {
+      svg {
+        color: var(--color-white);
+      }
+    }
+  }
+}
+
+// // ---------------------------------------------------------------------------------------------------------------------
+// // Button disabled
+// // ---------------------------------------------------------------------------------------------------------------------
+.button:disabled,
+.button[aria-disabled='true'],
+.button.disabled {
+  cursor: not-allowed;
+  background: var(--color-raisin-black);
+  color: var(--color-white);
+
+  &:not(.button--no-hover):hover {
+    @media (hover: hover) and (pointer: fine) {
+      border-color: transparent;
+      background: var(--color-raisin-black);
+      color: var(--color-white);
+
+      span {
+        color: var(--color-white);
+      }
+    }
+  }
+}
+
+// // ---------------------------------------------------------------------------------------------------------------------
+// // Button loading
+// // ---------------------------------------------------------------------------------------------------------------------
+.button.button--loading {
+  color: transparent;
+  position: relative;
+  background: var(--color-raisin-black);
+
+  * {
+    color: transparent !important;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: calc(50% - 10px);
+    left: calc(50% - 10px);
+    transform: translate(-50%, -50%);
+    border: 3px solid var(--color-white);
+    border-top: 3px solid var(--color-raisin-black);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+// // ---------------------------------------------------------------------------------------------------------------------
+// // Button add to cart
+// // ---------------------------------------------------------------------------------------------------------------------
+.button.button--add-to-cart {
+  &.checked {
+    svg {
+      stroke-dasharray: 150;
+      animation-name : check;
+      animation-duration: 1s;
+      animation-iteration-count: 1;
+      vertical-align: middle;
+      animation: check 1s alternate infinite;
+    }
+  }
+}
+
+@keyframes check {
+  0% {
+      stroke-dashoffset: 150;
+  }
+  100% {
+      stroke-dashoffset: 0;
+  }
+}
+
+// // ---------------------------------------------------------------------------------------------------------------------
+// // Button checked
+// // ---------------------------------------------------------------------------------------------------------------------
+.button.button--checked {
+  border: solid 1px var(--color-raisin-black);
+  color: var(--color-raisin-black);
+  background: var(--color-white);
+
+  span {
+    color: var(--color-raisin-black);
+  }
+
+  &:before {
+    content: '';
+    position: relative;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("data:image/svg+xml,%3Csvg width='15' height='11' viewBox='0 0 15 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 5L5.5 9.5L14 1' stroke='%23292525'/%3E%3C/svg%3E%0A");
+    width: 24px;
+    height: 24px;
+    margin-right: var(--space-xs);
+  }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Global fixes
+// ---------------------------------------------------------------------------------------------------------------------
+
+/* prevent the click event to be catched by the span element inside the button element */
+button > span {
+  pointer-events: none;
+}

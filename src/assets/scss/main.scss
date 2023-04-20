@@ -1,0 +1,32 @@
+/*
+Important notice :
+Some styles below come from base.css, the original base file of Dawn.
+In such case, we delete the style definition in base.css and the component is restyled in common.scss or its imports.
+*/
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Core is a SCSS helpers and contains no CSS - meant to included in every styles files
+// ---------------------------------------------------------------------------------------------------------------------
+@import "./core";
+@import "./typography";
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Global style used in all files and templates
+// ---------------------------------------------------------------------------------------------------------------------
+@import "./settings";
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Global components used in all templates
+// ---------------------------------------------------------------------------------------------------------------------
+
+@import "common/button";
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Protip : Import only Bootstrap utilities we want
+// Set in map-get-multiple second paramters the utilities you need.
+// See full list at ~bootstrap/scss/bootstrap-grid.scss
+//
+//  @import "~bootstrap/scss/utilities.scss";
+//  $utilities: map-get-multiple($utilities, ("display"));
+//  @import "~bootstrap/scss/utilities/api";
+// ---------------------------------------------------------------------------------------------------------------------
